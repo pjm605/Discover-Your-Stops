@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" >
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>Discover your stops</title>
+      <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <script src="/angular/angular.js" defer></script>
     <script src="/js/module.js" defer></script>
@@ -12,37 +27,70 @@
   </head>
 
   <body ng-app="myApp" >
-  <div ng-controller="MainCtrl" >
+
+  <!-- Header -->
+    
+    <div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Landing Page</h1>
+                        <h3>A Template by Start Bootstrap</h3>
+                        <hr class="intro-divider">               
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
   
-    <!-- vs-google-autocomplete="{ types:['(cities)'] }" -->
-    <div class="form-group">
-      <label for="city">From</label>
-      <input vs-google-autocomplete="{ types:['(cities)'] }"
-             ng-model="city" 
-             type="text" 
-             name="city"
-             id="city"
-             class="form-control" 
-             placeholder="Enter city name">
-      <span class="help-block"><b>Model: </b>{{city}}</span>
+    <div class="content-section-a" ng-controller="MainCtrl">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                     <!-- vs-google-autocomplete="{ types:['(cities)'] }" -->
+                    <div class="form-group">
+                      <label for="city">From</label>
+                      <input vs-google-autocomplete="{ types:['(cities)'] }"
+                             ng-model="fromCity" 
+                             type="text" 
+                             name="fromCity"
+                             id="fromCity"
+                             class="form-control" 
+                             placeholder="Enter city name">
+                      <span class="help-block"><b>Model: </b>{{fromCity}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                     <div class="form-group">
+                      <label for="city">To</label>
+                      <input vs-google-autocomplete="{ types:['(cities)'] }"
+                             ng-model="toCity" 
+                             type="text" 
+                             name="toCity"
+                             id="toCity"
+                             class="form-control" 
+                             placeholder="Enter city name">
+                      <span class="help-block"><b>Model: </b>{{toCity}}</span>
+                    </div>
+                </div>
+                 <button class="btn btn-default btn-lg" ng-click="search(fromCity, toCity)">Search</button>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
     </div>
-
-    <div class="form-group">
-      <label for="city">To</label>
-      <input vs-google-autocomplete="{ types:['(cities)'] }"
-             ng-model="city" 
-             type="text" 
-             name="city"
-             id="city"
-             class="form-control" 
-             placeholder="Enter city name">
-      <span class="help-block"><b>Model: </b>{{city}}</span>
-    </div>
-
-    <button>Search</button>
-
-  </div>
-
+    <!-- /.content-section-a -->
 
 
 
