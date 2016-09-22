@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <script src="/angular/angular.js" defer></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js" defer></script>
     <script src="/js/module.js" defer></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1jBScre_5MyK4hAbp-2njCS044ozFEA8&libraries=places"></script>
     <script src="/vsGoogleAutocomplete/dist/vs-google-autocomplete.js" defer></script>
@@ -30,7 +31,7 @@
 
   <!-- Header -->
     
-    <div class="intro-header">
+    <div class="intro-header" ng-controller="MainCtrl">
         <div class="container">
 
             <div class="row">
@@ -43,19 +44,7 @@
                 </div>
             </div>
 
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.intro-header -->
-
-    <!-- Page Content -->
-
-  
-    <div class="content-section-a" ng-controller="MainCtrl">
-
-        <div class="container">
-            <div class="row">
+                        <div class="row">
                 <div class="col-lg-5 col-sm-6">
                      <!-- vs-google-autocomplete="{ types:['(cities)'] }" -->
                     <div class="form-group">
@@ -83,9 +72,24 @@
                       <span class="help-block"><b>Model: </b>{{toCity}}</span>
                     </div>
                 </div>
-                 <button class="btn btn-default btn-lg" ng-click="search(fromCity, toCity)">Search</button>
+               
+                 <button class="btn btn-default btn-lg" ng-click="search(fromCity, toCity)">Search</button> 
             </div>
 
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
+  
+    <div class="content-section-a" ng-controller="MainCtrl">
+
+        <div class="container">
+
+            <ui-view></ui-view>
         </div>
         <!-- /.container -->
 
