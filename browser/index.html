@@ -8,15 +8,28 @@
     <meta name="author" content="">
 
     <title>Discover your stops</title>
-      <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Normalize -->
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <!-- Owl -->
+  <link rel="stylesheet" type="text/css" href="css/owl.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.1.0/css/font-awesome.min.css">
+  <!-- Elegant Icons -->
+  <link rel="stylesheet" type="text/css" href="fonts/eleganticons/et-icons.css">
+  <!-- Main style -->
+  <link rel="stylesheet" type="text/css" href="css/cardio.css">
 
-    <!-- Custom CSS -->
-    <link href="css/landing-page.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<!--   <script src="style/jquery-1.11.1.min.js"></script>
+  <script src="style/owl.carousel.min.js"></script>
+  <script src="style/bootstrap.min.js"></script>
+  <script src="style/wow.min.js"></script>
+  <script src="style/typewriter.js"></script>
+  <script src="style/jquery.onepagenav.js"></script>
+  <script src="style/main.js"></script> -->
 
     <script src="/angular/angular.js" defer></script>
     <script src="/angular-ui-router/release/angular-ui-router.js" defer></script>
@@ -36,24 +49,33 @@
 
   <body ng-app="myApp"  ng-controller="MainCtrl">
 
-  <!-- Header -->
-    
-    <div class="intro-header" >
-        <div class="container">
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1>Landing Page</h1>
-                        <h3>A Template by Start Bootstrap</h3>
-                        <hr class="intro-divider">               
-                    </div>
-                </div>
+
+    <header id="intro">
+    <div class="container">
+      <div class="table">
+        <div class="header-text">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h3 class="light white">Discover Your Routes</h3>
+              <h1 class="white typed">Discover Your Routes.</h1>
+              <span class="typed-cursor">|</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-                        <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                     <!-- vs-google-autocomplete="{ types:['(cities)'] }" -->
+  <!-- Header -->
+
+
+<section id="services" class="section section-padded">
+    <div class="container">
+      <div class="row text-center title">
+        <h2>Find Your Stops </h2>
+      </div> 
+              <!-- vs-google-autocomplete="{ types:['(cities)'] }" -->
                     <div class="form-group">
                       <label for="city">From</label>
                       <input vs-google-autocomplete="{ types:['(cities)'] }"
@@ -65,9 +87,8 @@
                              placeholder="Enter city name">
                       <span class="help-block"><b>Model: </b>{{fromCity}}</span>
                     </div>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                     <div class="form-group">
+
+                    <div class="form-group">
                       <label for="city">To</label>
                       <input vs-google-autocomplete="{ types:['(cities)'] }"
                              ng-model="toCity" 
@@ -78,31 +99,20 @@
                              placeholder="Enter city name">
                       <span class="help-block"><b>Model: </b>{{toCity}}</span>
                     </div>
-                </div>
-                
-                 <button class="btn btn-default btn-lg" ng-click="search(fromCity, toCity)">Search</button> 
-                
-            </div>
 
-        </div>
-        <!-- /.container -->
-
+                    <button class="btn btn-blue ripple trial-button" ng-click="search(fromCity, toCity)">Search</button> 
+           
     </div>
-    <!-- /.intro-header -->
+     <!-- /.container -->
 
-    <!-- Page Content -->
+</section>
 
-  
-    <div class="content-section-a" >
+<section id="team" class="section gray-bg">
+  <div class="container">
+       <ui-view></ui-view> 
+     </div>
+</section>
 
-        <div class="container">
-
-             <ui-view></ui-view> 
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
 
 
 
