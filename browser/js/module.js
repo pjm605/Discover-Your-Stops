@@ -25,27 +25,53 @@ app.controller('MainCtrl', function($scope, MainFactory, $log, $state) {
   		$scope.results = results.data
       $state.go('result')
   	})
-    .catch(next)
+    .catch($log.error)
   };
 
   
 });
+
+app.controller('StopCtrl', function ($scope, MainFactory, $log, $state, $stateParams) {
+
+  $scope.location = $stateParams.location
+  MainFactory.getStops( $scope.location )
+  .then(function (results) {
+    $scope.results = results.data
+  })
+  .catch($log.error)
+})
 
 app.service('MainFactory', function ($http, $log) {
 
 	return {
 		getResult: function (from, to) {
 			return $http.get('/api/result/?dName=' + from + "&oName=" + to)
-		}
+		},
+    getStops: function (location) {
+      return $http.get('/api/result/stops/' + location)
+    }
 	}
 });
 
 app.config(function ($stateProvider) {
 
   $stateProvider.state('result', {
-    url: '/result/',
+    url: '/result',
     templateUrl: '/js/result/result.html',
     controller: 'MainCtrl'
   });
 
 });
+
+app.config(function ($stateProvider) {
+
+  $stateProvider.state('stops', {
+    url: '/stops/:location',
+    templateUrl: '/js/stop/stop.html',
+    controller: 'StopCtrl'
+  });
+
+});
+
+
+
