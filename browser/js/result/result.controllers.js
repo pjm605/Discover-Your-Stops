@@ -1,5 +1,5 @@
-// app.controller('ResultCtrl', function ($scope, MainFactory, $log, $state, $stateParams, results) {
+ app.controller('ResultCtrl', function ($scope, MainFactory, $log, $state, $stateParams, results) {
 
-//  $scope.results = results.data
+ $scope.results = results.data
 
-// })
+})
