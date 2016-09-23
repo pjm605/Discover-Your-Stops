@@ -9,37 +9,6 @@ app.run(function ($rootScope) {
   });
 });
 
-app.controller('MainCtrl', function($scope, MainFactory, $log, $state) {
-  
-  $scope.options = {
-    types: ['(cities)'],
-    componentRestrictions: { country: 'FR' }
-  };
-
-  $scope.search = function (from, to) {
-  	var cFrom = from.split(",")[0]
-  	var cTo = to.split(",")[0]
-
-    MainFactory.getResult(cFrom, cTo)
-  	.then(function (results) {
-  		$scope.results = results.data
-      $state.go('result')
-  	})
-    .catch($log.error)
-  };
-
-  
-});
-
-app.controller('StopCtrl', function ($scope, MainFactory, $log, $state, $stateParams) {
-
-  $scope.location = $stateParams.location
-  MainFactory.getStops( $scope.location )
-  .then(function (results) {
-    $scope.results = results.data
-  })
-  .catch($log.error)
-})
 
 app.service('MainFactory', function ($http, $log) {
 
@@ -48,30 +17,71 @@ app.service('MainFactory', function ($http, $log) {
 			return $http.get('/api/result/?dName=' + from + "&oName=" + to)
 		},
     getStops: function (location) {
-      return $http.get('/api/result/stops/' + location)
+      return $http.get('/api/result/activity/' + location)
     }
 	}
 });
 
+app.controller('MainCtrl', function($scope, MainFactory, $log, $state) {
+  
+  $scope.options = {
+    types: ['(cities)'],
+    componentRestrictions: { country: 'FR' }
+  };
+  
+  $scope.search = function (from, to) {
+    var cFrom = from.split(",")[0]
+    var cTo = to.split(",")[0]
+
+    $scope.cFrom = cFrom;
+    $scope.cTo = cTo;
+    $state.go('result', {from: cFrom, to: cTo})
+   
+  };
+  
+});
+
+app.controller('ActivityCtrl', function ($scope, MainFactory, $log, $state, $stateParams) {
+
+  $scope.location = $stateParams.location
+  MainFactory.getStops( $scope.location )
+  .then(function (activities) {
+    $scope.activities = activities.data.activities
+  })
+  .catch($log.error)
+
+
+})
+
 app.config(function ($stateProvider) {
 
   $stateProvider.state('result', {
-    url: '/result',
+    url: '/result/:from/:to',
     templateUrl: '/js/result/result.html',
-    controller: 'MainCtrl'
+    resolve: {
+      results: function ($stateParams, MainFactory) {
+        return MainFactory.getResult($stateParams.from, $stateParams.to)
+      }
+    },
+    controller: 'ResultCtrl'
   });
 
 });
 
 app.config(function ($stateProvider) {
 
-  $stateProvider.state('stops', {
-    url: '/stops/:location',
-    templateUrl: '/js/stop/stop.html',
-    controller: 'StopCtrl'
+  $stateProvider.state('activity', {
+    url: '/activity/:location',
+    templateUrl: '/js/activity/activity.html',
+    controller: 'ActivityCtrl'
   });
 
 });
 
+app.controller('ResultCtrl', function ($scope, MainFactory, $log, $state, $stateParams, results) {
+
+ $scope.results = results.data
+
+})
 
 

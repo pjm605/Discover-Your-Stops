@@ -9,7 +9,7 @@
             <span>{{ result.name }}</span>
           </h5>
           <small>Total Stops: {{ result.stops.length }}</small>
-          <p ng-repeat="stop in result.stops"><a ui-sref="stops({location: stop.name})">{{ stop.name }}</a>
+          <p ng-repeat="stop in result.stops"><a ui-sref="activity({location: stop.name})">{{ stop.name }}</a>
           </p>
         </div>
       </a>

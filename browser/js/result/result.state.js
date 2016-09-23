@@ -1,17 +1,14 @@
-// 'use strict';
-
 // app.config(function ($stateProvider) {
 
 //   $stateProvider.state('result', {
-//     url: '/result',
-//     templateUrl: '/js/result/result.html'
-//     // controller: 'ResultCtrl',
-//     // resolve: {
-//     //   allAlbums: function (AlbumFactory) {
-//     //     return AlbumFactory.fetchAll();
-//     //   }
-//     // }
+//     url: '/result/:from/:to',
+//     templateUrl: '/js/result/result.html',
+//     resolve: {
+//       results: function ($stateParams, MainFactory) {
+//         return MainFactory.getResult($stateParams.from, $stateParams.to)
+//       }
+//     },
+//     controller: 'ResultCtrl'
 //   });
-
 
 // });
