@@ -1,7 +1,6 @@
-<!-- 
+
 <div>
   <h3>Routes</h3>
-  <p>{{ hello }}</p>
   <div class="row">
     <div class="col-xs-4" ng-repeat="result in results">
       <a class="thumbnail">
@@ -9,23 +8,12 @@
           <h5>
             <span>{{ result.name }}</span>
           </h5>
-          <small>{{ result.stops.length }}</small>
+          <small>Total Stops: {{ result.stops.length }}</small>
+          <p ng-repeat="stop in result.stops"> {{ stop.name }}</p>
         </div>
       </a>
     </div>
   </div>
 </div>
- -->
 
 
-<div>
-  <h2>Result</h2>
-  <pre> {{ hello }}</pre>
-  <div ng-repeat="result in results" class="thumbnail">
-    <div class="col-md-7">
-      <h4>{{ result }}</h4>
-    </div>
-  </div>
-  
-
-</div>
