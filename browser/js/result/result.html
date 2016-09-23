@@ -5,9 +5,9 @@
         <div class ="row">
           
           <div class="col-lg-5 col-lg-offset-2 col-sm-6" ng-repeat="result in results">
-                    <p slide-toggle="#derp" class="lead"> {{ result.name }}</p>
+                    <p slide-toggle="#derp{{$index}}" class="lead"> {{ result.name }}</p>
                     <small>Total Stops: {{ result.stops.length }}</small>
-                     <div id="derp" class="slideable" >
+                     <div id="derp{{$index}}" class="slideable" >
                      <p ng-repeat="stop in result.stops"><a ui-sref="activity({location: stop.name})">{{ stop.name }}</a></p>
                      </div>
                
