@@ -11,9 +11,4 @@ app.config(function ($stateProvider) {
     controller: 'ResultCtrl'
   });
 
-  // $stateProvider.state('result.stops', {
-  // 	url:'/stops',
- 	// templateUrl: 'result.stops.html'
-  // })
-
 });

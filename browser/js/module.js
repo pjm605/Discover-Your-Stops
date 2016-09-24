@@ -17,20 +17,6 @@ app.run(function ($rootScope, $window) {
 
 
 
-app.service('MainFactory', function ($http, $log) {
-
-	return {
-		getResult: function (from, to) {
-			return $http.get('/api/result/?dName=' + from + "&oName=" + to)
-		},
-        getStops: function (location) {
-          return $http.get('/api/result/activity/' + location)
-        }
-	}
-});
-
-
-
 app.directive('slideable', function () {
     return {
         restrict:'C',

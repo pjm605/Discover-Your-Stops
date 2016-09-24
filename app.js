@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 
-app.use('/api/home', require('./routes/home.js'));
+
 app.use('/api/result', require('./routes/result.js'))
 
 
@@ -23,7 +23,6 @@ app.use('/api/result', require('./routes/result.js'))
 
 
 app.get('/*', function (req, res) {
-    //console.log('about to send index', indexHtmlPath)
     res.sendFile(indexHtmlPath);
 });
 
