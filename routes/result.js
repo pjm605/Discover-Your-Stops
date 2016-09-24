@@ -12,7 +12,11 @@ router.get('/', function(req, res, next) {
 	.header("X-Mashape-Key", "UGMUcYPwJkmshVBGRK8isF5PCE9Ap1ea4B5jsnPk1ebbElIiQ6")
 	.header("Accept", "application/json")
 		.end(function (result) {
-		  res.json(result.body.routes);
+			if(!result.body || !result.body.routes)
+			{
+				res.send(null);
+			}
+		 else  res.json(result.body.routes);
 		});
 });
 
