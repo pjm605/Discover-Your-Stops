@@ -1,8 +1,64 @@
 
-<div>
-  <h1 class="section-heading">{{ location }}</h1>
-</div>
+<section id="team" class="section gray-bg">
+    <div class="container">
 
+      <div class="row title text-center">
+        <h2 class="margin-top">{{ location }}</h2>
+        <h4 class="light muted">Things to Do! </h4>
+      </div>
+      <div class="row">
+        <div class="col-md-4" ng-repeat="activity in activities | limitTo : 3">
+          <div class="team text-center">
+            <div class="cover" style="background:url({{activity.imageUrl}}); background-size:cover;">
+              <div class="overlay text-center">
+                <h3 class="white">  {{ activity.fromPrice }} </h3>
+                <h5 class="light light-white"> {{ activity.fromPriceLabel }} </h5>
+              </div>
+            </div>
+            <div class="title">
+              <h4> {{ activity.title }}  </h4>
+             
+            </div>
+            <button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Sign Up Now</button>
+          </div>
+        </div>
+
+      </div>
+     <!--  row end -->
+     <div class="row">
+        <div class="col-md-4" ng-repeat="activity in activities | limitTo : 3 : 4">
+          <div class="team text-center">
+            <div class="cover" style="background:url({{activity.imageUrl}}); background-size:cover;">
+              <div class="overlay text-center">
+                <h3 class="white">  {{ activity.fromPrice }} </h3>
+                <h5 class="light light-white"> {{ activity.fromPriceLabel }} </h5>
+              </div>
+            </div>
+            <div class="title">
+              <h4> {{ activity.title }}  </h4>
+             
+            </div>
+            <button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Sign Up Now</button>
+          </div>
+        </div>
+
+      </div>
+     <!--  row end -->
+
+
+    </div>
+    <!-- container end -->
+</section>
+
+
+
+
+
+
+
+
+
+<!-- 
 <div>
 
   <div class="row">
@@ -11,6 +67,8 @@
         <div class="caption">
 
          <h3> {{ activity.title }} </h3>
+         <h4> {{ activity.fromPrice }} <br></h4>
+         <h5> {{ activity.fromPriceLabel }} </h5>
          <img src ="{{activity.imageUrl}}">
      
         </div>
@@ -18,5 +76,5 @@
     </div>
   </div>
 </div>
-
+ -->
 
