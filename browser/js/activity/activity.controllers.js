@@ -15,6 +15,7 @@ app.controller('ActivityCtrl', function ($scope, MainFactory, $log, $state, $sta
 	  		act["linkTo"] = "https://www.expedia.com/things-to-do/" + name + ".a" + act.id + ".activity-details";
 	  	}
 	    $scope.activities = activities.data.activities
+      console.log($scope.activities)
   	}
   	
   		
