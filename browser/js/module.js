@@ -1,7 +1,7 @@
 
 'use strict';
 
-var app = angular.module('myApp', ['vsGoogleAutocomplete', 'ui.router']);
+var app = angular.module('myApp', ['vsGoogleAutocomplete', 'ui.router', 'ngMessages']);
 
 app.run(function ($rootScope) {
   $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
@@ -16,9 +16,9 @@ app.service('MainFactory', function ($http, $log) {
 		getResult: function (from, to) {
 			return $http.get('/api/result/?dName=' + from + "&oName=" + to)
 		},
-    getStops: function (location) {
-      return $http.get('/api/result/activity/' + location)
-    }
+        getStops: function (location) {
+          return $http.get('/api/result/activity/' + location)
+        }
 	}
 });
 

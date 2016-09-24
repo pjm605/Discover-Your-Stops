@@ -6,6 +6,10 @@
         <h2 class="margin-top">{{ location }}</h2>
         <h4 class="light muted">Things to Do! </h4>
       </div>
+      
+
+      <p ng-show="isAvaiable">Nothing here!</p>
+
       <div class="row">
         <div class="col-md-4" ng-repeat="activity in activities | limitTo : 3">
           <div class="team text-center">
