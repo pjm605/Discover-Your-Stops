@@ -3,11 +3,18 @@
 
 var app = angular.module('myApp', ['vsGoogleAutocomplete', 'ui.router', 'ngMessages']);
 
-app.run(function ($rootScope) {
+app.run(function ($rootScope, $window) {
   $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
     console.error('Error transitioning from "' + fromState.name + '" to "' + toState.name + '":', error);
   });
+
+  $rootScope.goBack = function () {
+    $window.history.back()
+  };
+
 });
+
+
 
 
 app.service('MainFactory', function ($http, $log) {
