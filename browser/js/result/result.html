@@ -18,7 +18,10 @@
                   </div>
                 
                      <div id="derp{{$index}}" class="slideable" >
-                     <p ng-repeat="stop in result.stops"><a ui-sref="activity({location: stop.name})">{{ stop.name }}</a></p>
+                     <p ng-repeat="stop in result.stops"><a ui-sref="activity({location: stop.name})">{{ stop.name }}</a> 
+                 <br> &nbsp; &nbsp;  {{ stop.segment }} </p>
+                    <!--  <p ng-repeat="kind in "></p>
+ -->
                      </div>
                
                
@@ -34,7 +37,7 @@
                   </div>
                 
                      <div id="derp{{$index + 3}}" class="slideable" >
-                     <p ng-repeat="stop in result.stops"><a ui-sref="activity({location: stop.name})">{{ stop.name }}</a></p>
+                     <p ng-repeat="stop in result.stops"><a ui-sref="activity({location: stop.name})">{{ stop.name }}</a>  <br> &nbsp; &nbsp;  {{ stop.segment }} </p>
                      </div>
                
                
