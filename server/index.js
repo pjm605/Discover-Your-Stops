@@ -4,20 +4,21 @@ var bodyParser = require('body-parser');
 var app = express();
 var morgan = require('morgan')
 var port = process.env.PORT || 8080;
-var indexHtmlPath = path.join(__dirname, '/browser/index.html')
 
-app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/node_modules'));
-app.use(express.static(__dirname + '/bower_components'));
-app.use(express.static(__dirname + '/browser'));
-app.use(bodyParser.json());
+var rootPath = path.join(__dirname, '../');
+
+var indexHtmlPath = path.join(rootPath, './browser/index.html')
+
+app.use(express.static(rootPath + '/public'));
+app.use(express.static(rootPath + '/node_modules'));
+app.use(express.static(rootPath + '/bower_components'));
+app.use(express.static(rootPath + '/browser'));
 
 app.use(bodyParser.urlencoded({extended: false}));
-
+app.use(bodyParser.json());
 
 
 app.use('/api/result', require('./routes/result.js'))
-
 
 
 
