@@ -12,7 +12,6 @@ app.controller('MainCtrl', function($scope, MainFactory, $log, $state) {
     $scope.cFrom = cFrom;
     $scope.cTo = cTo;
     $state.go('result', {from: cFrom, to: cTo})
-   
   };
   
 });

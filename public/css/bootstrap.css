@@ -84,6 +84,11 @@ sup {
 sub {
   bottom: -.25em;
 }
+#map {
+  width: 90%;
+  height: 350px;
+  margin-top: 50px;
+}
 img {
   border: 0;
 }

@@ -2,12 +2,12 @@ var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-var morgan = require('morgan')
+// var morgan = require('morgan');// 
 var port = process.env.PORT || 8080;
 
 var rootPath = path.join(__dirname, '../');
 
-var indexHtmlPath = path.join(rootPath, './browser/index.html')
+var indexHtmlPath = path.join(rootPath, './browser/index.html');
 
 app.use(express.static(rootPath + '/public'));
 app.use(express.static(rootPath + '/node_modules'));
@@ -19,8 +19,7 @@ app.use(bodyParser.json());
 
 
 app.use('/api/result', require('./routes/result.js'))
-
-
+app.use('/api/result', require('./routes/activity.js'))
 
 
 app.get('/*', function (req, res) {
